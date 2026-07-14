@@ -25,8 +25,8 @@ def preprocess_text(text):
 
     return " ".join(processed_words)
 
-if __name__ == "__main__":
-    sample = "Congratulations!! You have WON a FREE lottery."
+# if __name__ == "__main__":
+#     sample = "Congratulations!! You have WON a FREE lottery."
 
-    print(preprocess_text(sample))
+#     print(preprocess_text(sample))
 

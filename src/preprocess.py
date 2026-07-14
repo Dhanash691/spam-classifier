@@ -26,10 +26,10 @@ def load_and_clean(path):
 
     return df
 
-if __name__ == "__main__":
-    df = load_and_clean("data/spam.csv")
-    print(df["label"].value_counts())
-    print()
-    print(df.info())
-    print()
-    print(df["label"].value_counts())
+# if __name__ == "__main__":
+#     df = load_and_clean("data/spam.csv")
+#     print(df["label"].value_counts())
+#     print()
+#     print(df.info())
+#     print()
+#     print(df["label"].value_counts())
