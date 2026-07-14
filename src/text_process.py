@@ -29,3 +29,4 @@ if __name__ == "__main__":
     sample = "Congratulations!! You have WON a FREE lottery."
 
     print(preprocess_text(sample))
+

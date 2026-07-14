@@ -17,7 +17,7 @@ def load_and_clean(path):
 #ML preprocessing(CONVERTING SPAM AND HAM TO BINARY)
     df['label']=df['label'].map({'ham':0, 'spam':1})
 
-#remove Remove rows with missing labels/messages
+#remove rows with missing labels/messages
     df = df.dropna(subset=["label", "message"])
 
 # Remove duplicate messages
