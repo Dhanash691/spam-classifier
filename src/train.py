@@ -1,5 +1,5 @@
-from preprocess import load_and_clean
-from text_process import preprocess_text
+from src.preprocess import load_and_clean
+from src.text_process import preprocess_text
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB

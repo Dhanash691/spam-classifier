@@ -1,6 +1,6 @@
 import joblib
 
-from text_process import preprocess_text
+from src.text_process import preprocess_text
 
 model = joblib.load("models/spam_model.pkl")
 vectorizer = joblib.load("models/tfidf_vectorizer.pkl")

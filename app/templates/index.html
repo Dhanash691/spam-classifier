@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpamShield - AI Spam Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="navbar">
+        <h1 class="logo">SpamShield</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li> <!-- <a> is used for creating a hyperlink -->
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h2>AI Spam Detector</h2>
+                <p>Paste an email or SMS message below to classify it as Spam or Ham using a Machine Learning model.</p>
+            </div>
+            
+        </section>
+
+        <section class="form-card">
+            <h2>Check Your Message</h2>
+            <form action="/predict" method="POST">
+
+                <label for="message">Enter your message:</label>
+                <br>
+                <!-- The main container for the detector module -->
+                <div class="detector-container">
+  
+                <!-- The image of the panda (holding on, looking down) -->
+                     <img src="{{ url_for('static', filename='images/panda.svg') }}" alt="Watching Panda" class="panda-watch">
+
+                <!-- The standard input text area -->
+                    <textarea id="message" name="message" class="spam-input" placeholder="Paste text to scan..."></textarea>
+                
+                </div>
+                <br><br>
+
+                <button type="submit" class="btn-predict">Predict</button>
+                <button type="reset" class="btn-reset">Reset</button>
+
+            </form>
+        </section>
+
+
+        <section class="result-card">
+            <h2>Prediction Result</h2>
+
+            <h3>Prediction</h3>
+            <p class="result-text">{{ prediction }}</p>
+
+            <h3>Confidence</h3>
+            <p class="result-text">{{ confidence }}%</p>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 SpamShield</p>
+    </footer>
+
+</body>
+</html>

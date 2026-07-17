@@ -1,0 +1,363 @@
+/* =========================================================
+   SPAMSHIELD STYLESHEET
+   A cute, cozy, pastel-themed stylesheet.
+   Organized into sections so it's easy to learn from.
+   ========================================================= */
+
+
+/* =========================================================
+   General Styles
+   These rules apply to the whole page: background, font,
+   spacing, and how content is centered.
+   ========================================================= */
+
+body {
+    /* A soft cream background instead of plain white feels cozy */
+    background-color: #FFF8F2;
+
+    /* A rounded, friendly font. Comic Sans MS is a fallback
+       for that handwritten, cute feel. Change this anytime! */
+    font-family: "Comic Sans MS", "Segoe UI", sans-serif;
+
+    /* Dark gray text is easier to read than pure black */
+    color: #3B3B3B;
+
+    /* Removes default browser spacing around the page edges */
+    margin: 0;
+    padding: 0;
+
+    /* Adds comfortable line spacing for readability */
+    line-height: 1.6;
+}
+
+/* Center any element with this class horizontally,
+   and limit how wide it stretches on big screens */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* =========================================================
+   Navigation
+   The navbar sits at the top of every page.
+   ========================================================= */
+
+.navbar {
+    /* White background makes it stand out from the cream page */
+    background-color: hsl(0, 0%, 100%);
+
+    /* Rounded corners only on the bottom, since it touches the
+       top of the screen */
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    /* A soft shadow gives it a gentle "floating" look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+    /* Flexbox lets us place the logo and links side by side */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 30px;
+}
+
+.logo {
+    /* Soft pink text for the site title */
+    color: #F8BBD9;
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.nav-links {
+    /* Remove default list styling (bullets, padding) */
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #3B3B3B;
+    font-weight: bold;
+
+    /* Smooth color change when hovering */
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    /* Turns pink on hover for a friendly touch */
+    color: #F8BBD9;
+}
+
+
+/* =========================================================
+   Hero Section
+   The welcoming introduction area at the top of the home page.
+   ========================================================= */
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    text-align: center;
+    padding: 60px 20px;
+}
+
+
+.detector-container {
+  display: flex;             /* Centers the text area horizontally */
+  flex-direction: column;    /* Elements stack vertically (conceptually) */
+  align-items: center;       /* Centers the textarea */
+  margin-top: 100px;         /* Adds top space so the panda doesn't go off-screen */
+  
+  position: relative;        /* THE CRITICAL LINE. This makes this container the 'anchor' */
+                             /* for any absolute elements inside it (like the panda). */
+
+  width: 100%;
+}
+
+.spam-input {
+    display: block;
+    width: 100%;               /* 2. Tells the textarea to fill the container... */
+    max-width: 500px;          /* 3. ...but hard-stops stretching right at 500px */
+    height: 250px;            
+    padding: 15px;            
+    margin: 0;            
+    z-index: 1;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+
+    box-sizing: border-box;
+
+    /* --- THE DOUBLE BORDER TRICK --- */
+    background-color: #FFFFFF;
+    border: 4px solid #3B3B3B;      /* The dark outer frame line */
+    box-shadow: inset 0 0 0 4px #EDE7F6; /* The soft pastel inner frame line */
+    border-radius: 20px;            /* Keeps the corners smoothly rounded */
+
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.spam-input:focus {
+  outline: none;
+  border-color: #F8BBD9;
+  box-shadow: inset 0 0 0 4px #EDE7F6, 0 0 8px rgba(248, 187, 217, 0.6);
+}
+
+
+
+
+
+
+
+.panda-watch {
+  width: 140px;              /* Set the desired size of the illustration */
+  height: auto;              /* Keep aspect ratio perfect */
+
+  position: absolute;        /* REMOVES element from standard layout flow. */
+                             /* Positions it relative to the '.detector-container' anchor. */
+
+  top: -112px;                /* Pushes the panda UP, lifting it 75px above the container's top edge. */
+                             /* (Typically half the panda's height to 'split' the border). */
+
+  left: 50%;                 /* Moves the panda's LEFT edge to the exact center of the container. */
+  transform: translateX(-50%); /* Shifts the panda BACK by 50% of its OWN width. */
+                             /* (This is how you perfectly center an absolute element). */
+
+  z-index: 10;               /* A HIGH layer number. Forces the panda to render *above* the textarea. */
+                             /* This ensures its paws overlap the border. */
+}
+
+.hero-text h2 {
+    font-size: 2.6rem;
+    color: #3B3B3B;
+    margin-bottom: 15px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+
+
+
+/* =========================================================
+   Form
+   Styling for the card that holds the message textarea
+   and the Predict / Reset buttons.
+   ========================================================= */
+
+.form-card {
+    /* White card floating on the cream background */
+    background-color: #FFFFFF;
+
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+}
+
+.form-card label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+/* =========================================================
+   Buttons
+   Styling for the Predict and Reset buttons.
+   ========================================================= */
+
+.btn-predict,
+.btn-reset {
+    /* Shared button styling */
+    padding: 12px 30px;
+    margin: 10px 8px 0 8px;
+
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    /* Smooth hover animation */
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.btn-predict {
+    background-color: #F8BBD9;
+    color: #FFFFFF;
+}
+
+.btn-predict:hover {
+    background-color: #F48FB1;
+    /* Slightly lifts the button on hover */
+    transform: translateY(-3px);
+}
+
+.btn-reset {
+    background-color: #E0E0E0;
+    color: #3B3B3B;
+}
+
+.btn-reset:hover {
+    background-color: #CFCFCF;
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   Result Card
+   The card that shows the prediction and confidence score.
+   ========================================================= */
+
+.result-card {
+    background-color: #FFFFFF;
+
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+}
+
+.result-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* These two classes can be added to .result-text later
+   (for example with Flask/Jinja) depending on the outcome */
+.spam-result {
+    color: #E57373; /* Soft red for Spam */
+}
+
+.ham-result {
+    color: #81C784; /* Soft green for Ham */
+}
+
+
+/* =========================================================
+   Footer
+   Simple, calm footer at the bottom of every page.
+   ========================================================= */
+
+.site-footer {
+    background-color: #EDE7F6;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+
+    font-size: 0.9rem;
+    color: #3B3B3B;
+}
+
+
+/* =========================================================
+   Responsive Design
+   Adjusts the layout for tablets and phones so everything
+   stays easy to read and use on smaller screens.
+   ========================================================= */
+
+/* Tablets and smaller laptops */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        padding: 40px 15px;
+    }
+
+    .hero-text h2 {
+        font-size: 2rem;
+    }
+
+    .form-card,
+    .result-card {
+        margin: 20px 15px;
+        padding: 20px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .btn-predict,
+    .btn-reset {
+        width: 80%;
+        margin: 8px auto;
+        display: block;
+    }
+}
